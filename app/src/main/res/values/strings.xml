@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">LoginSignup</string>
+    <string name="txtUsername">Username</string>
+    <string name="txtPassword">Password</string>
+    <string name="buttonLogin">Login</string>
+    <string name="buttonReg">Register Now</string>
+    <string name="buttonLogout">Logout</string>
+    <string name="hint_male">Male</string>
+    <string name="hint_female">Female</string>
+    <string name="Name">Name</string>
+    <string name="Email">Email</string>
+    <string name="title_gender">Gender</string>
+    <string name="buttonReg2">Register</string>
+    <string name="buttonLogin2">Login Here</string>
+    <string name="name_error">Enter a valid name</string>
+    <string name="email_error">Enter a valid email</string>
+    <string name="password_error">Enter a valid password</string>
+    <string name="dialog_message">Welcome to Alert Dialog</string>
+    <string name="dialog_title">Javatpoint Alert Dialog</string>
+    <string name="text_register">Not Register ? Registere Here</string>
+
+</resources>
