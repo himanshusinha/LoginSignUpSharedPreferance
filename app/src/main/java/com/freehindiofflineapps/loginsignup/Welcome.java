@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,11 +25,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Welcome extends AppCompatActivity {
-    ArrayList<User> userArrayList;
 
-     private RecyclerView mRecyclerView;
-    private ExampleAdapter mAdapter;
-    UserSession session;
+     UserSession session;
     Button btnLogout;
     AlertDialog.Builder builder;
     TextView textView;

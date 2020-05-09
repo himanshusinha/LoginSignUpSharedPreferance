@@ -3,6 +3,7 @@ package com.freehindiofflineapps.loginsignup;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +17,7 @@ public class Register extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     Button buttonReg2;
-    EditText txtUsername, txtPassword, txtEmail;
+    EditText inputUsername, inputPassword, inputEmail;
     UserSession session;
 
     @Override
@@ -29,25 +30,39 @@ public class Register extends AppCompatActivity {
 
         editor = sharedPreferences.edit();
 
-        txtUsername = (EditText) findViewById(R.id.txtName);
-        txtPassword = (EditText) findViewById(R.id.txtPassword);
-        txtEmail = (EditText) findViewById(R.id.txtEmail);
+        inputUsername = (EditText) findViewById(R.id.txtName);
+        inputPassword = (EditText) findViewById(R.id.txtPassword);
+        inputEmail = (EditText) findViewById(R.id.txtEmail);
         buttonReg2 = (Button) findViewById(R.id.buttonReg2);
 
 
         buttonReg2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = txtUsername.getText().toString();
-                String email = txtEmail.getText().toString();
-                String pass = txtPassword.getText().toString();
-                if (txtUsername.getText().length() <= 0) {
-                    Toast.makeText(Register.this, "Enter name", Toast.LENGTH_SHORT).show();
-                } else if (txtEmail.getText().length() <= 0) {
-                    Toast.makeText(Register.this, "Enter email", Toast.LENGTH_SHORT).show();
-                } else if (txtPassword.getText().length() <= 0) {
-                    Toast.makeText(Register.this, "Enter password", Toast.LENGTH_SHORT).show();
-                } else {
+                String name = inputUsername.getText().toString();
+                String email = inputEmail.getText().toString();
+                String pass = inputPassword.getText().toString();
+                if (TextUtils.isEmpty(name)) {
+                    inputUsername.setError("Please enter username");
+                    inputUsername.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(pass)) {
+                    inputPassword.setError("Please enter password");
+                    inputPassword.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(email)) {
+                    inputEmail.setError("Please enter email");
+                    inputEmail.requestFocus();
+                    return;
+                }
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    inputEmail.setError("Enter valid email");
+                    inputEmail.requestFocus();
+                    return;
+                }
+                else {
 
                     // as now we have information in string. Lets stored them with the help of editor
                     editor.putString("Name", name);
